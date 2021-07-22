@@ -9,7 +9,7 @@ public class QuizGenerator {
   Scanner input = new Scanner(System.in);
 
   public void quiz (QuestionGenerator question) {
-      System.out.println(question.question);
+      System.out.println("\n" + question.question);
       for (String elem : question.answerOptions) {
           System.out.println(elem);
       }
@@ -19,7 +19,8 @@ public class QuizGenerator {
 
     public void result() {
         System.out.println("Конец!");
-
+        Answers.resultOfGame();
+        Answers.checkAnswers();
     }
 
 
