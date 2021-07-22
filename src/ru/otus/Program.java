@@ -1,10 +1,10 @@
 package ru.otus;
 
-public class Game {
+public class Program {
 
     public static void main(String[] args) {
 
-        Quiz quiz = new Quiz();
+        QuizGenerator quiz = new QuizGenerator();
 
         System.out.println("Введите \"start\" что бы начать!");
 
