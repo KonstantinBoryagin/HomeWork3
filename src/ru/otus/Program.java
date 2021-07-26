@@ -23,6 +23,8 @@ public class Program {
             } else {
                 System.out.println("Начнем заново!");
             }
+
+            QuizService.answers.clear();
         }
 
     }

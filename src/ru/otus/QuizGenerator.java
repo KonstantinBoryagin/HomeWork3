@@ -1,5 +1,6 @@
 package ru.otus;
 
+import java.sql.SQLOutput;
 import java.util.Scanner;
 
 public class QuizGenerator {
@@ -13,13 +14,18 @@ public class QuizGenerator {
         }
         System.out.print("Введите номер ответа - ");
 
-        if (input.hasNextInt()) {
-            playerAnswer = input.nextInt();
-            QuizService.saveAnswers(playerAnswer, question);
-            return;
-        } else {
-            System.out.println("Это даже не цифра, попытайтесь в следующий раз");
-
+        while (true) {
+            if (input.hasNextInt()) {
+                playerAnswer = input.nextInt();
+                if (playerAnswer > 0 && playerAnswer <= question.answerOptions.length) {
+                    QuizService.saveAnswers(playerAnswer, question);
+                    return;
+                }
+                System.out.println("Такого варианта ответа нет, введите номер ответа еще раз!");
+                continue;
+            } else {
+                System.out.println(input.next() + " - это даже не цифра, давайте попробуем еще раз!");
+            }
         }
     }
 
