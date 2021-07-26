@@ -33,6 +33,12 @@ public class QuizGenerator {
     public void result() {
         System.out.println("Конец!");
         QuizService.resultOfGame();
-        QuizService.checkAnswers();
+        System.out.println("\n Введите \"S\" для отображения статистики, либо что угодно для продолжения");
+        if (input.next().equalsIgnoreCase("S")){
+            QuizService.checkAnswers();
+        } else {
+
+        }
+
     }
 }
