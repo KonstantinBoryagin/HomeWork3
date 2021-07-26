@@ -6,7 +6,6 @@ public class QuizService {
     static int countOfCorrect;
     static ArrayList<String> answers = new ArrayList<>();
 
-
     static void saveAnswers(int answer, QuestionGenerator question) {
         if (answer == question.trueAnswer) {
             answers.add("верно " + question.answerOptions[question.trueAnswer - 1]);
@@ -27,16 +26,16 @@ public class QuizService {
         System.out.println("\nИтого верных ответов - " + countOfCorrect);
         switch (countOfCorrect) {
             case 1:
-                System.out.println("Отлично, на " + calculateResult() + "% правильно");
+                System.out.println(Program.name + ", отлично, на " + calculateResult() + "% правильно");
                 break;
             case 2:
-                System.out.println("Хорошо, на " + calculateResult() + "% правильно");
+                System.out.println(Program.name + ", хорошо, на " + calculateResult() + "% правильно");
                 break;
             case 3:
-                System.out.println("Ужасно, на " + calculateResult() + "% правильно");
+                System.out.println(Program.name + ", ужасно, на " + calculateResult() + "% правильно");
                 break;
             default:
-                System.out.println("Не отчаивайтесь");
+                System.out.println(Program.name + ", не отчаивайтесь");
         }
     }
 
