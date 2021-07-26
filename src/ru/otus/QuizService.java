@@ -2,7 +2,7 @@ package ru.otus;
 
 import java.util.ArrayList;
 
-public class Answers {
+public class QuizService {
     static int countOfCorrect;
     static ArrayList<String> answers = new ArrayList<>();
 
@@ -40,8 +40,8 @@ public class Answers {
         }
     }
 
-    static int calculateResult(){
+    private static int calculateResult(){
         int countAll = QuestionGenerator.countOfQuestions;
-        return (int)(countOfCorrect * 100)/countAll;
+        return (countOfCorrect * 100)/countAll;
     }
 }

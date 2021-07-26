@@ -1,6 +1,6 @@
 package ru.otus;
 
-public class Questions {
+public class QuestionsDictionary {
 
     static int trueFirst = 3;
     static String questionOne = "Сколько примитивных типов данных в Java?";
@@ -21,7 +21,7 @@ public class Questions {
             "2.  Скопление звёзд",
             "3.  Парад планет",
             "4.  Солнечная система",
-            "5.  Шоколода"};
+            "5.  Шоколодка"};
 
 
 }
