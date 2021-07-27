@@ -17,7 +17,7 @@ public class Program {
             quiz.quiz(QuestionGenerator.stepThree);
             quiz.result();
 
-            System.out.println("Что бы выйти введите \"Q\" или что либо другое для повтора");
+            System.out.println("\n Что бы выйти введите \"Q\" или что либо другое для повтора");
             if (quiz.input.next().equalsIgnoreCase("q")) {
                 return;
             } else {

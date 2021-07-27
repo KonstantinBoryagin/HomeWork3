@@ -1,6 +1,5 @@
 package ru.otus;
 
-import java.sql.SQLOutput;
 import java.util.Scanner;
 
 public class QuizGenerator {
@@ -28,7 +27,6 @@ public class QuizGenerator {
             }
         }
     }
-
 
     public void result() {
         System.out.println("Конец!");
