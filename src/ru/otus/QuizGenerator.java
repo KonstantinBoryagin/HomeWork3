@@ -6,17 +6,14 @@ public class QuizGenerator {
     private int playerAnswer;
     Scanner input = new Scanner(System.in);
 
-    public void quiz(QuestionGenerator question) {
-        System.out.println("\n" + question.question);
-        for (String elem : question.answerOptions) {
-            System.out.println(elem);
-        }
+    public void quiz(Question question) {
+        question.printQuestion();
         System.out.print("Введите номер ответа - ");
 
         while (true) {
             if (input.hasNextInt()) {
                 playerAnswer = input.nextInt();
-                if (playerAnswer > 0 && playerAnswer <= question.answerOptions.length) {
+                if (playerAnswer > 0 && playerAnswer <= question.answerOptionsLength()) {
                     QuizService.saveAnswers(playerAnswer, question);
                     return;
                 }

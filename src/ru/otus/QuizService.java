@@ -6,12 +6,12 @@ public class QuizService {
     static int countOfCorrect;
     static ArrayList<String> answers = new ArrayList<>();
 
-    static void saveAnswers(int answer, QuestionGenerator question) {
-        if (answer == question.trueAnswer) {
-            answers.add("верно " + question.answerOptions[question.trueAnswer - 1]);
+    static void saveAnswers(int answer, Question question) {
+        if (answer == question.getCorrect()) {
+            answers.add("верно " + question.getAnswerOptions()[question.getCorrect() - 1]);
             countOfCorrect++;
         } else {
-            answers.add("не верно, правильный ответ - " + question.answerOptions[question.trueAnswer - 1]);
+            answers.add("не верно, правильный ответ - " + question.getAnswerOptions()[question.getCorrect() - 1]);
         }
     }
 
@@ -40,7 +40,7 @@ public class QuizService {
     }
 
     private static int calculateResult(){
-        int countAll = QuestionGenerator.countOfQuestions;
+        int countAll = QuestionGenerator.countQuestions();
         return (countOfCorrect * 100)/countAll;
     }
 }

@@ -23,37 +23,23 @@ public enum Question {
 
     public void printQuestion() {
         System.out.println(question);
-        int formater = 0;
+        int formatOutput = 0;
         for (int i = 0; i < answerOptions.length; i++) {
             System.out.printf("%3d"+ ". " + "%-20s", i + 1, answerOptions[i]);
-            formater++;
-            if (formater % 2 == 0) {
+            formatOutput++;
+            if (formatOutput % 2 == 0) {
                 System.out.println();
             }
         }
-        //System.out.println();
+        System.out.println();
     }
 
-//    private int maxLength(String[] answerOptions) {
-//        int maxLength = 0;
-//        for (String string : answerOptions) {
-//            if (string.length() > maxLength) {
-//                maxLength = string.length();
-//            }
-//        }
-//        return maxLength;
-//    }
-
-    @Override
-    public String toString() {
-        return question + "\n" + Arrays.toString(answerOptions);
+    public int answerOptionsLength() {
+        return answerOptions.length;
     }
+
     public int getCorrect() {
         return correct;
-    }
-
-    public String getQuestion() {
-        return question;
     }
 
     public String[] getAnswerOptions() {

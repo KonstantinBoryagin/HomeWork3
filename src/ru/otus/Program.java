@@ -12,9 +12,9 @@ public class Program {
         name = quiz.input.nextLine();
 
         while (true) {
-            quiz.quiz(QuestionGenerator.stepOne);
-            quiz.quiz(QuestionGenerator.stepTwo);
-            quiz.quiz(QuestionGenerator.stepThree);
+            quiz.quiz(QuestionGenerator.questionOne);
+            quiz.quiz(QuestionGenerator.questionTwo);
+            quiz.quiz(QuestionGenerator.questionThree);
             quiz.result();
 
             System.out.println("\n Что бы выйти введите \"Q\" или что либо другое для повтора");
