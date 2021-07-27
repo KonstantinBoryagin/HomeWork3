@@ -25,6 +25,7 @@ public class Program {
             }
 
             QuizService.answers.clear();
+            QuizService.resetCountOfCorrect();
         }
 
     }

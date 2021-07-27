@@ -22,7 +22,7 @@ public enum Question {
     }
 
     public void printQuestion() {
-        System.out.println(question);
+        System.out.println("\n" + question);
         int formatOutput = 0;
         for (int i = 0; i < answerOptions.length; i++) {
             System.out.printf("%3d"+ ". " + "%-20s", i + 1, answerOptions[i]);
