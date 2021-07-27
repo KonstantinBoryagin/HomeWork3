@@ -18,7 +18,7 @@ public class QuizService {
     static void checkAnswers() {
         System.out.println("");
         for (int i = 0; i < answers.size(); i++) {
-            System.out.println((i + 1) + "-й вопрос - " + answers.get(i));
+            System.out.println((i + 1) + "-й вопрос: " + answers.get(i));
         }
     }
 
