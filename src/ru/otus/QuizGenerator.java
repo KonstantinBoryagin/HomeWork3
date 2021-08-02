@@ -7,10 +7,24 @@ public class QuizGenerator {
     Scanner input = new Scanner(System.in);
     QuizService quizService = new QuizService();
 
-    public void quiz(Question question) {
+    public void askQuestion(Question question) {
         question.printQuestion();
         System.out.print("Введите номер ответа - ");
 
+        playerInputValidation(question);
+    }
+
+    public void resultForQuiz() {
+        System.out.println("\n Конец!");
+        quizService.resultOfGame();
+    }
+
+    public void resetCounters() {
+        quizService.clearArrayListWithPlayerAnswers();
+        quizService.resetCountOfCorrect();
+    }
+
+    private void playerInputValidation(Question question) {
         while (true) {
             if (input.hasNextInt()) {
                 playerAnswer = input.nextInt();
@@ -26,19 +40,10 @@ public class QuizGenerator {
         }
     }
 
-    public void result() {
-        System.out.println("\n Конец!");
-        quizService.resultOfGame();
+    public void displayAnswerStatistic() {
         System.out.println("\n Введите \"S\" для отображения статистики, либо что угодно для продолжения");
-
         if (input.next().equalsIgnoreCase("S")){
             quizService.checkAnswers();
         }
-
-    }
-
-    public void resetCounters() {
-        quizService.clearArrayListWithPlayerAnswers();
-        quizService.resetCountOfCorrect();
     }
 }

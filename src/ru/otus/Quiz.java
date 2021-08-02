@@ -13,10 +13,11 @@ public class Quiz {
         quizService.setPlayerName(quizGenerator.input.nextLine());
 
         while (true) {
-            quizGenerator.quiz(questionGenerator.questionOne);
-            quizGenerator.quiz(questionGenerator.questionTwo);
-            quizGenerator.quiz(questionGenerator.questionThree);
-            quizGenerator.result();
+            quizGenerator.askQuestion(questionGenerator.questionOne);
+            quizGenerator.askQuestion(questionGenerator.questionTwo);
+            quizGenerator.askQuestion(questionGenerator.questionThree);
+            quizGenerator.resultForQuiz();
+            quizGenerator.displayAnswerStatistic();
             quizGenerator.resetCounters();
 
             System.out.println("\n Что бы выйти введите \"Q\" или что либо другое для повтора");
