@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class QuizGenerator {
     private int playerAnswer;
     Scanner input = new Scanner(System.in);
+    QuizService quizService = new QuizService();
 
     public void quiz(Question question) {
         question.printQuestion();
@@ -14,7 +15,7 @@ public class QuizGenerator {
             if (input.hasNextInt()) {
                 playerAnswer = input.nextInt();
                 if (playerAnswer > 0 && playerAnswer <= question.answerOptionsLength()) {
-                    QuizService.saveAnswers(playerAnswer, question);
+                    quizService.saveAnswers(playerAnswer, question);
                     return;
                 }
                 System.out.println("Такого варианта ответа нет, введите номер ответа еще раз!");
@@ -27,13 +28,17 @@ public class QuizGenerator {
 
     public void result() {
         System.out.println("\n Конец!");
-        QuizService.resultOfGame();
+        quizService.resultOfGame();
         System.out.println("\n Введите \"S\" для отображения статистики, либо что угодно для продолжения");
-        if (input.next().equalsIgnoreCase("S")){
-            QuizService.checkAnswers();
-        } else {
 
+        if (input.next().equalsIgnoreCase("S")){
+            quizService.checkAnswers();
         }
 
+    }
+
+    public void resetCounters() {
+        quizService.clearArrayListWithPlayerAnswers();
+        quizService.resetCountOfCorrect();
     }
 }
