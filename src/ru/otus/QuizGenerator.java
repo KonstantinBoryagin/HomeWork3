@@ -5,9 +5,13 @@ import java.util.Scanner;
 public class QuizGenerator {
     private int playerAnswer;
     private static int countOfQuestions;
-    Scanner input = new Scanner(System.in);
-    UserAnswersProcessing userAnswersProcessing = new UserAnswersProcessing();
-    QuizService quizService = new QuizService();
+    private Scanner input = new Scanner(System.in);
+    private UserAnswersProcessing userAnswersProcessing = new UserAnswersProcessing();
+    private QuizService quizService = new QuizService();
+
+    public Scanner getInput() {
+        return input;
+    }
 
     public void quiz() {
         askQuestions();
@@ -25,18 +29,14 @@ public class QuizGenerator {
         }
     }
 
-    public static int getCountOfQuestions() {
-        return countOfQuestions;
-    }
-
     private void qenerateQuestion(Question question) {
         question.printQuestion();
         System.out.print("Введите номер ответа - ");
 
-        playerInputValidation(question);
+        checkPlayerAnswers(question);
     }
 
-    private void playerInputValidation(Question question) {
+    private void checkPlayerAnswers(Question question) {
         while (true) {
             if (input.hasNextInt()) {
                 playerAnswer = input.nextInt();
@@ -57,15 +57,19 @@ public class QuizGenerator {
         quizService.resultOfGame();
     }
 
-    private void resetCounters() {
-        userAnswersProcessing.clearArrayListWithPlayerAnswers();
-        userAnswersProcessing.resetCountOfCorrect();
-    }
-
     private void displayAnswerStatistic() {
         System.out.println("\n Введите \"S\" для отображения статистики, либо что угодно для продолжения");
         if (input.next().equalsIgnoreCase("S")){
             userAnswersProcessing.checkAnswers();
         }
+    }
+
+    private void resetCounters() {
+        userAnswersProcessing.clearArrayListWithPlayerAnswers();
+        userAnswersProcessing.resetCountOfCorrect();
+    }
+
+    public static int getCountOfQuestions() {
+        return countOfQuestions;
     }
 }

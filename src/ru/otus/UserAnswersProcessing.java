@@ -2,10 +2,17 @@ package ru.otus;
 
 import java.util.ArrayList;
 
+/**
+ *
+ */
 public class UserAnswersProcessing {
     private static int countOfCorrect;
     private ArrayList<String> answers = new ArrayList<>();
 
+    /**
+     * @param answer
+     * @param question
+     */
     public void saveAnswers(int answer, Question question) {
         if (answer == question.getCorrect()) {
             answers.add("правильно - " + "\"" + question.getAnswerOptions()[question.getCorrect() - 1] + "\"");

@@ -1,7 +1,5 @@
 package ru.otus;
 
-import java.util.Arrays;
-
 public enum Question {
     QUESTION_ONE (3, "Сколько примитивных типов данных в Java?",
             new String[] {"Десять", "Пять", "Восемь"}),
