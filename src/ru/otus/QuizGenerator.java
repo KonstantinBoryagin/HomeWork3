@@ -4,9 +4,10 @@ import java.util.Scanner;
 
 public class QuizGenerator {
     private int playerAnswer;
-    static int countOfQuestions;
+    private static int countOfQuestions;
     Scanner input = new Scanner(System.in);
     UserAnswersProcessing userAnswersProcessing = new UserAnswersProcessing();
+    QuizService quizService = new QuizService();
 
     public void quiz() {
         askQuestions();
@@ -24,21 +25,15 @@ public class QuizGenerator {
         }
     }
 
+    public static int getCountOfQuestions() {
+        return countOfQuestions;
+    }
+
     private void qenerateQuestion(Question question) {
         question.printQuestion();
         System.out.print("Введите номер ответа - ");
 
         playerInputValidation(question);
-    }
-
-    private void resultForQuiz() {
-        System.out.println("\n Конец!");
-        userAnswersProcessing.resultOfGame();
-    }
-
-    private void resetCounters() {
-        userAnswersProcessing.clearArrayListWithPlayerAnswers();
-        userAnswersProcessing.resetCountOfCorrect();
     }
 
     private void playerInputValidation(Question question) {
@@ -57,7 +52,17 @@ public class QuizGenerator {
         }
     }
 
-    public void displayAnswerStatistic() {
+    private void resultForQuiz() {
+        System.out.println("\n Конец!");
+        quizService.resultOfGame();
+    }
+
+    private void resetCounters() {
+        userAnswersProcessing.clearArrayListWithPlayerAnswers();
+        userAnswersProcessing.resetCountOfCorrect();
+    }
+
+    private void displayAnswerStatistic() {
         System.out.println("\n Введите \"S\" для отображения статистики, либо что угодно для продолжения");
         if (input.next().equalsIgnoreCase("S")){
             userAnswersProcessing.checkAnswers();

@@ -5,12 +5,10 @@ public class Quiz {
     public static void main(String[] args) {
 
         QuizGenerator quizGenerator = new QuizGenerator();
-       // QuestionGenerator questionGenerator = new QuestionGenerator();
-        UserAnswersProcessing userAnswersProcessing = new UserAnswersProcessing();
+        QuizService quizService = new QuizService();
 
-        System.out.println("Мини векторина!");
-        System.out.println("Введите Ваше имя что бы начать!");
-        userAnswersProcessing.setPlayerName(quizGenerator.input.nextLine());
+        System.out.println("Добро пожаловать! Введите Ваше имя что бы начать!");
+        quizService.setPlayerName(quizGenerator.input.nextLine());
 
         while (true) {
             quizGenerator.quiz();

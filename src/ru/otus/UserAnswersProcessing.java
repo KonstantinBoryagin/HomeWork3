@@ -3,8 +3,7 @@ package ru.otus;
 import java.util.ArrayList;
 
 public class UserAnswersProcessing {
-    private int countOfCorrect;
-    private static String playerName;
+    private static int countOfCorrect;
     private ArrayList<String> answers = new ArrayList<>();
 
     public void saveAnswers(int answer, Question question) {
@@ -23,27 +22,10 @@ public class UserAnswersProcessing {
         }
     }
 
-    public void resultOfGame() {
-        System.out.println("\nИтого верных ответов - " + countOfCorrect);
-        switch (countOfCorrect) {
-            case 3:
-                System.out.println(playerName + ", отлично, на " + calculateResult() + "% правильно");
-                break;
-            case 2:
-                System.out.println(playerName + ", хорошо, на " + calculateResult() + "% правильно");
-                break;
-            case 1:
-                System.out.println(playerName + ", ужасно, на " + calculateResult() + "% правильно");
-                break;
-            default:
-                System.out.println(playerName + ", не отчаивайтесь");
-        }
+    public static int getCountOfCorrect() {
+        return countOfCorrect;
     }
 
-    private int calculateResult() {
-        int countAll = QuestionGenerator.countQuestions();
-        return (countOfCorrect * 100) / countAll;
-    }
 
     public void clearArrayListWithPlayerAnswers() {
         answers.clear();
@@ -52,9 +34,4 @@ public class UserAnswersProcessing {
     public void resetCountOfCorrect() {
         countOfCorrect = 0;
     }
-
-    public void setPlayerName(String playerName) {
-        this.playerName = playerName;
-    }
-
 }
