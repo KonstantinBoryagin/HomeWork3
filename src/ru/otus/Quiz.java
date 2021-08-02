@@ -5,7 +5,7 @@ public class Quiz {
     public static void main(String[] args) {
 
         QuizGenerator quizGenerator = new QuizGenerator();
-        QuestionGenerator questionGenerator = new QuestionGenerator();
+       // QuestionGenerator questionGenerator = new QuestionGenerator();
         UserAnswersProcessing userAnswersProcessing = new UserAnswersProcessing();
 
         System.out.println("Мини векторина!");
@@ -13,12 +13,7 @@ public class Quiz {
         userAnswersProcessing.setPlayerName(quizGenerator.input.nextLine());
 
         while (true) {
-            quizGenerator.askQuestion(questionGenerator.questionOne);
-            quizGenerator.askQuestion(questionGenerator.questionTwo);
-            quizGenerator.askQuestion(questionGenerator.questionThree);
-            quizGenerator.resultForQuiz();
-            quizGenerator.displayAnswerStatistic();
-            quizGenerator.resetCounters();
+            quizGenerator.quiz();
 
             System.out.println("\n Что бы выйти введите \"Q\" или что либо другое для повтора");
             if (quizGenerator.input.next().equalsIgnoreCase("q")) {

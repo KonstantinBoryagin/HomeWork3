@@ -4,30 +4,39 @@ import java.util.Scanner;
 
 public class QuizGenerator {
     private int playerAnswer;
+    static int countOfQuestions;
     Scanner input = new Scanner(System.in);
     UserAnswersProcessing userAnswersProcessing = new UserAnswersProcessing();
 
     public void quiz() {
+        askQuestions();
+        resultForQuiz();
+        displayAnswerStatistic();
+        resetCounters();
+    }
+
+    private void askQuestions() {
         Question[] questionsArray = Question.values();
         for (int i = 0; i < questionsArray.length; i++) {
             Question question = Question.values()[i];
-            askQuestion(question);
+            qenerateQuestion(question);
+            countOfQuestions++;
         }
     }
 
-    public void askQuestion(Question question) {
+    private void qenerateQuestion(Question question) {
         question.printQuestion();
         System.out.print("Введите номер ответа - ");
 
         playerInputValidation(question);
     }
 
-    public void resultForQuiz() {
+    private void resultForQuiz() {
         System.out.println("\n Конец!");
         userAnswersProcessing.resultOfGame();
     }
 
-    public void resetCounters() {
+    private void resetCounters() {
         userAnswersProcessing.clearArrayListWithPlayerAnswers();
         userAnswersProcessing.resetCountOfCorrect();
     }
