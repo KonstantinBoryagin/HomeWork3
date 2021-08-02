@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 public class QuizService {
     private int countOfCorrect;
+    private static String playerName;
     private ArrayList<String> answers = new ArrayList<>();
 
     public void saveAnswers(int answer, Question question) {
@@ -26,16 +27,16 @@ public class QuizService {
         System.out.println("\nИтого верных ответов - " + countOfCorrect);
         switch (countOfCorrect) {
             case 3:
-                System.out.println(Quiz.name + ", отлично, на " + calculateResult() + "% правильно");
+                System.out.println(playerName + ", отлично, на " + calculateResult() + "% правильно");
                 break;
             case 2:
-                System.out.println(Quiz.name + ", хорошо, на " + calculateResult() + "% правильно");
+                System.out.println(playerName + ", хорошо, на " + calculateResult() + "% правильно");
                 break;
             case 1:
-                System.out.println(Quiz.name + ", ужасно, на " + calculateResult() + "% правильно");
+                System.out.println(playerName + ", ужасно, на " + calculateResult() + "% правильно");
                 break;
             default:
-                System.out.println(Quiz.name + ", не отчаивайтесь");
+                System.out.println(playerName + ", не отчаивайтесь");
         }
     }
 
@@ -51,4 +52,9 @@ public class QuizService {
     public void resetCountOfCorrect() {
         countOfCorrect = 0;
     }
+
+    public void setPlayerName(String playerName) {
+        this.playerName = playerName;
+    }
+
 }
