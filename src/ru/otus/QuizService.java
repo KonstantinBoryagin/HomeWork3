@@ -2,9 +2,11 @@ package ru.otus;
 
 public class QuizService {
     private static String playerName;
+    //private QuizGenerator quizGenerator = new QuizGenerator();
+    private UserAnswersProcessing userAnswersProcessing = new UserAnswersProcessing();
 
     public void resultOfGame() {
-        int countOfCorrect = UserAnswersProcessing.getCountOfCorrect();
+        int countOfCorrect = userAnswersProcessing.getCountOfCorrect();
         System.out.println("\nИтого верных ответов - " + countOfCorrect);
         switch (countOfCorrect) {
             case 3:
@@ -23,7 +25,7 @@ public class QuizService {
 
     private int calculatePercentOfTrueAnswers() {
         int countOfAllAnswers = QuizGenerator.getCountOfQuestions();
-        int countOfCorrectAnswers = UserAnswersProcessing.getCountOfCorrect();
+        int countOfCorrectAnswers = userAnswersProcessing.getCountOfCorrect();
         int percentOfTruAnswers = (countOfCorrectAnswers * 100) / countOfAllAnswers;
         return percentOfTruAnswers;
     }
