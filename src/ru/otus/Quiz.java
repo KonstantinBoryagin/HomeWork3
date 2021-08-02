@@ -6,11 +6,11 @@ public class Quiz {
 
         QuizGenerator quizGenerator = new QuizGenerator();
         QuestionGenerator questionGenerator = new QuestionGenerator();
-        QuizService quizService = new QuizService();
+        UserAnswersProcessing userAnswersProcessing = new UserAnswersProcessing();
 
         System.out.println("Мини векторина!");
         System.out.println("Введите Ваше имя что бы начать!");
-        quizService.setPlayerName(quizGenerator.input.nextLine());
+        userAnswersProcessing.setPlayerName(quizGenerator.input.nextLine());
 
         while (true) {
             quizGenerator.askQuestion(questionGenerator.questionOne);

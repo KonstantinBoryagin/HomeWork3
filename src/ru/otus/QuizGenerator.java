@@ -5,7 +5,15 @@ import java.util.Scanner;
 public class QuizGenerator {
     private int playerAnswer;
     Scanner input = new Scanner(System.in);
-    QuizService quizService = new QuizService();
+    UserAnswersProcessing userAnswersProcessing = new UserAnswersProcessing();
+
+    public void quiz() {
+        Question[] questionsArray = Question.values();
+        for (int i = 0; i < questionsArray.length; i++) {
+            Question question = Question.values()[i];
+            askQuestion(question);
+        }
+    }
 
     public void askQuestion(Question question) {
         question.printQuestion();
@@ -16,12 +24,12 @@ public class QuizGenerator {
 
     public void resultForQuiz() {
         System.out.println("\n Конец!");
-        quizService.resultOfGame();
+        userAnswersProcessing.resultOfGame();
     }
 
     public void resetCounters() {
-        quizService.clearArrayListWithPlayerAnswers();
-        quizService.resetCountOfCorrect();
+        userAnswersProcessing.clearArrayListWithPlayerAnswers();
+        userAnswersProcessing.resetCountOfCorrect();
     }
 
     private void playerInputValidation(Question question) {
@@ -29,7 +37,7 @@ public class QuizGenerator {
             if (input.hasNextInt()) {
                 playerAnswer = input.nextInt();
                 if (playerAnswer > 0 && playerAnswer <= question.answerOptionsLength()) {
-                    quizService.saveAnswers(playerAnswer, question);
+                    userAnswersProcessing.saveAnswers(playerAnswer, question);
                     return;
                 }
                 System.out.println("Такого варианта ответа нет, введите номер ответа еще раз!");
@@ -43,7 +51,7 @@ public class QuizGenerator {
     public void displayAnswerStatistic() {
         System.out.println("\n Введите \"S\" для отображения статистики, либо что угодно для продолжения");
         if (input.next().equalsIgnoreCase("S")){
-            quizService.checkAnswers();
+            userAnswersProcessing.checkAnswers();
         }
     }
 }

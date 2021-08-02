@@ -2,7 +2,7 @@ package ru.otus;
 
 import java.util.ArrayList;
 
-public class QuizService {
+public class UserAnswersProcessing {
     private int countOfCorrect;
     private static String playerName;
     private ArrayList<String> answers = new ArrayList<>();
