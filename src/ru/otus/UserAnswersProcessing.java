@@ -29,7 +29,7 @@ public class UserAnswersProcessing {
         }
     }
 
-    public static int getCountOfCorrect() {
+    public int getCountOfCorrect() {
         return countOfCorrect;
     }
 

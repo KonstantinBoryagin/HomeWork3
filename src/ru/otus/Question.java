@@ -9,9 +9,9 @@ public enum Question {
             new String[] {"Галактика", "Скопление звёзд", "Парад планет", "Солнечная система", "Шоколодка"});
 
 
-    private int correct;
-    private String question;
-    private String[] answerOptions;
+    private final int correct;
+    private final String question;
+    private final String[] answerOptions;
 
     Question (int correct, String question, String[] answerOptions) {
         this.correct = correct;
@@ -23,7 +23,7 @@ public enum Question {
         System.out.println("\n" + question);
         int formatOutput = 0;
         for (int i = 0; i < answerOptions.length; i++) {
-            System.out.printf("%3d"+ ". " + "%-20s", i + 1, answerOptions[i]);
+            System.out.printf("%3d"+ ". " + "%-20s", (i + 1), answerOptions[i]);
             formatOutput++;
             if (formatOutput % 2 == 0) {
                 System.out.println();

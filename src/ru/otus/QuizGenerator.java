@@ -3,11 +3,10 @@ package ru.otus;
 import java.util.Scanner;
 
 public class QuizGenerator {
-    private int playerAnswer;
     private static int countOfQuestions;
-    private Scanner input = new Scanner(System.in);
-    private UserAnswersProcessing userAnswersProcessing = new UserAnswersProcessing();
-    private QuizService quizService = new QuizService();
+    private final Scanner input = new Scanner(System.in);
+    private final UserAnswersProcessing userAnswersProcessing = new UserAnswersProcessing();
+    private final QuizService quizService = new QuizService();
 
     public Scanner getInput() {
         return input;
@@ -39,7 +38,7 @@ public class QuizGenerator {
     private void checkPlayerAnswers(Question question) {
         while (true) {
             if (input.hasNextInt()) {
-                playerAnswer = input.nextInt();
+                int playerAnswer = input.nextInt();
                 if (playerAnswer > 0 && playerAnswer <= question.answerOptionsLength()) {
                     userAnswersProcessing.saveAnswers(playerAnswer, question);
                     return;
